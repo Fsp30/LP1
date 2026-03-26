@@ -19,8 +19,8 @@ public class IMC {
     }
 
     public void setPeso(float peso){
-        if(peso < 0){
-            throw new IllegalArgumentException("O peso não pode ser negativo");
+        if(peso <= 0){
+            throw new IllegalArgumentException("O peso não pode ser menor ou igual a zero");
         }
         this.peso = peso;
     }
@@ -30,6 +30,7 @@ public class IMC {
     public float getPeso(){ return  this.peso; }
 
     public String calcularIMC() {
+
         float imc = this.peso / (this.altura * this.altura);
 
         if (this.genero == 'F') {
