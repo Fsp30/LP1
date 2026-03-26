@@ -94,6 +94,26 @@ class IMCTest {
     }
 
     @Test
+    public void deveCalcularIMCNaFronteiraMarginalmEnteFeminino() {
+        imc.setGenero('F');
+        imc.setPeso(70.25f);
+
+        String resultado = imc.calcularIMC();
+
+        assertEquals("Marginalmente acima do Peso", resultado);
+    }
+
+    @Test
+    public void deveCalcularIMCNaFronteiraMarginalmenteMasculino() {
+        imc.setGenero('M');
+        imc.setPeso(71.88f);
+
+        String resultado = imc.calcularIMC();
+
+        assertEquals("Marginalmente acima do Peso", resultado);
+    }
+
+    @Test
     public void deveCalcularIMCAcimaDoPesoIdealMasculino() {
         imc.setGenero('M');
         imc.setPeso(82f);
@@ -139,7 +159,17 @@ class IMCTest {
             imc.setPeso(-50f);
             fail();
         } catch (IllegalArgumentException e) {
-            assertEquals("O peso não pode ser negativo", e.getMessage());
+            assertEquals("O peso não pode ser menor ou igual a zero", e.getMessage());
+        }
+    }
+
+    @Test
+    public void deveValidarPesoIgualAZero() {
+        try {
+            imc.setPeso(0f);
+            fail();
+        } catch (IllegalArgumentException e) {
+            assertEquals("O peso não pode ser menor ou igual a zero", e.getMessage());
         }
     }
 
@@ -149,11 +179,6 @@ class IMCTest {
         assertEquals(0f, imc.getAltura());
     }
 
-    @Test
-    public void deveAceitarPesoZero() {
-        imc.setPeso(0f);
-        assertEquals(0f, imc.getPeso());
-    }
 
     @Test
     public void deveConverterGeneroMinusculoParaMaiusculo() {
