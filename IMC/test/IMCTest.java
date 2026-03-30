@@ -10,126 +10,97 @@ class IMCTest {
     @BeforeEach
     public void setUp() {
         imc = new IMC();
-        imc.setAltura(1.65f);
+        imc.setAltura(1.0f);
         imc.setPeso(60f);
     }
 
     @Test
-    public void deveCalcularIMCAbaixoDoPesoFeminino() {
+    public void deveCalcularIMCFemininoAbaixoDoPesoLimiteMaximo(){
         imc.setGenero('F');
-        imc.setPeso(45f);
+        imc.setPeso(19.0f);
 
-        String resultado = imc.calcularIMC();
-
+        String resultado = imc.MostrarResultado();
         assertEquals("Abaixo do Peso", resultado);
     }
 
     @Test
-    public void deveCalcularIMCPesoNormalFeminino() {
+    public void deveCalcularIMCFemininoNoPesoNormalLimiteMaximo(){
         imc.setGenero('F');
-        imc.setPeso(55f);
+        imc.setPeso(25.7f);
 
-        String resultado = imc.calcularIMC();
-
+        String resultado = imc.MostrarResultado();
         assertEquals("Peso normal", resultado);
     }
 
     @Test
-    public void deveCalcularIMCMarginalmenteAcimaDoPesoFeminino() {
+    public void deveCalcularIMCFemininoMarginalmenteAcimaDoPesoLimiteMaximo(){
         imc.setGenero('F');
-        imc.setPeso(72f);
+        imc.setPeso(27.2f);
 
-        String resultado = imc.calcularIMC();
-
+        String resultado = imc.MostrarResultado();
         assertEquals("Marginalmente acima do Peso", resultado);
     }
 
     @Test
-    public void deveCalcularIMCAcimaDoPesoIdealFeminino() {
+    public void deveCalcularIMCFemininoAcimaDoPesoIdealLimiteMaximo(){
         imc.setGenero('F');
-        imc.setPeso(78f);
+        imc.setPeso(32.2f);
 
-        String resultado = imc.calcularIMC();
-
+        String resultado = imc.MostrarResultado();
         assertEquals("Acima do peso Ideal", resultado);
     }
 
     @Test
-    public void deveCalcularIMCObesaFeminino() {
+    public void deveCalcularIMCFemininoObesaLimiteMinimo(){
         imc.setGenero('F');
-        imc.setPeso(95f);
+        imc.setPeso(32.3f);
 
-        String resultado = imc.calcularIMC();
-
+        String resultado = imc.MostrarResultado();
         assertEquals("Obesa", resultado);
     }
 
     @Test
-    public void deveCalcularIMCAbaixoDoPesoMasculino() {
+    public void deveCalcularIMCMasculinoAbaixoDoPesoLimiteMaximo(){
         imc.setGenero('M');
-        imc.setPeso(52f);
-        String resultado = imc.calcularIMC();
+        imc.setPeso(20.6f);
 
+        String resultado = imc.MostrarResultado();
         assertEquals("Abaixo do Peso", resultado);
     }
 
     @Test
-    public void deveCalcularIMCPesoNormalMasculino() {
+    public void deveCalcularIMCMasculinoNoPesoNormalLimiteMaximo(){
         imc.setGenero('M');
-        imc.setPeso(70f);
+        imc.setPeso(26.3f);
 
-        String resultado = imc.calcularIMC();
-
+        String resultado = imc.MostrarResultado();
         assertEquals("Peso normal", resultado);
     }
 
     @Test
-    public void deveCalcularIMCMarginalmenteAcimaDoPesoMasculino() {
+    public void deveCalcularIMCMasculinoMarginalmenteAcimaDoPesoLimiteMaximo(){
         imc.setGenero('M');
-        imc.setPeso(74f);
+        imc.setPeso(27.6f);
 
-        String resultado = imc.calcularIMC();
-
+        String resultado = imc.MostrarResultado();
         assertEquals("Marginalmente acima do Peso", resultado);
     }
 
     @Test
-    public void deveCalcularIMCNaFronteiraMarginalmEnteFeminino() {
-        imc.setGenero('F');
-        imc.setPeso(70.25f);
-
-        String resultado = imc.calcularIMC();
-
-        assertEquals("Marginalmente acima do Peso", resultado);
-    }
-
-    @Test
-    public void deveCalcularIMCNaFronteiraMarginalmenteMasculino() {
+    public void deveCalcularIMCMasculinoAcimaDoPesoIdealLimiteMaximo(){
         imc.setGenero('M');
-        imc.setPeso(71.88f);
+        imc.setPeso(31.0f);
 
-        String resultado = imc.calcularIMC();
-
-        assertEquals("Marginalmente acima do Peso", resultado);
-    }
-
-    @Test
-    public void deveCalcularIMCAcimaDoPesoIdealMasculino() {
-        imc.setGenero('M');
-        imc.setPeso(82f);
-
-        String resultado = imc.calcularIMC();
-
+        String resultado = imc.MostrarResultado();
         assertEquals("Acima do peso Ideal", resultado);
     }
 
     @Test
-    public void deveCalcularIMCObesoMasculino() {
+    public void deveCalcularIMCMasculinoObesoLimiteMinimo(){
         imc.setGenero('M');
-        imc.setPeso(92f);
+        imc.setPeso(31.1f);
 
-        String resultado = imc.calcularIMC();
-
+        String resultado = imc.MostrarResultado();
         assertEquals("Obeso", resultado);
     }
 
