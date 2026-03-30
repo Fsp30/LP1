@@ -29,24 +29,52 @@ public class IMC {
     public float getAltura(){ return  this.altura; }
     public float getPeso(){ return  this.peso; }
 
-    public String calcularIMC() {
-
-        float imc = this.peso / (this.altura * this.altura);
-
-        if (this.genero == 'F') {
-            if (imc >= 32.3) return "Obesa";
-            if (imc >= 27.3) return "Acima do peso Ideal";
-            if (imc >= 25.8) return "Marginalmente acima do Peso";
-            if (imc >= 19.1) return "Peso normal";
-            return "Abaixo do Peso";
-        }
-
-        if (imc >= 31.1) return "Obeso";
-        if (imc >= 27.8) return "Acima do peso Ideal";
-        if (imc >= 26.4) return "Marginalmente acima do Peso";
-        if (imc >= 20.7) return "Peso normal";
-        return "Abaixo do Peso";
-
+    public float calcularIMC(){
+        return this.peso/(this.altura * this.altura);
     }
+
+    public String MostrarResultado(){
+        String resultado;
+        float imc = this.calcularIMC();
+        if(this.genero == 'F'){
+            if(imc> 32.2f){
+                resultado = "Obesa";
+            }else{
+                if(imc > 27.2f){
+                    resultado = "Acima do peso Ideal";
+                }else {
+                    if(imc > 25.7f){
+                        resultado = "Marginalmente acima do Peso";
+                    }else{
+                        if(imc > 19.0f){
+                            resultado = "Peso normal";
+                        }else{
+                            resultado = "Abaixo do Peso";
+                        }
+                    }
+                }
+            }
+        }else{
+            if(imc > 31.0f){
+                resultado = "Obeso";
+            }else{
+                if(imc > 27.6f){
+                    resultado = "Acima do peso Ideal";
+                }else {
+                    if(imc > 26.3f){
+                        resultado = "Marginalmente acima do Peso";
+                    }else{
+                        if(imc > 20.6f){
+                            resultado = "Peso normal";
+                        }else{
+                            resultado = "Abaixo do Peso";
+                        }
+                    }
+                }
+            }
+        }
+        return resultado;
+    }
+
 
 }
