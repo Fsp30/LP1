@@ -1,16 +1,14 @@
 package lista_2_heranca.geometria;
 
-public class Retangulo extends FormaGeometrica{
+public class Retangulo implements FormaGeometrica{
     private float base;
     private float altura;
 
-    public Retangulo(float base, float altura){
-        setBase(base);
-        setAltura(altura);
-    }
-
-    public float getBase() {
-        return base;
+    public void setAltura(float altura) {
+        if(altura < 0){
+            throw new IllegalArgumentException("O valor da altura não pode ser negativo");
+        }
+        this.altura = altura;
     }
 
     public void setBase(float base) {
@@ -24,19 +22,15 @@ public class Retangulo extends FormaGeometrica{
         return altura;
     }
 
-    public void setAltura(float altura) {
-        if(altura < 0){
-            throw new IllegalArgumentException("O valor da altura não pode ser negativo");
-        }
-        this.altura = altura;
+    public float getBase() {
+        return base;
     }
 
     public float calcularArea() {
         return this.base * this.altura;
     }
 
-    @Override
     public float calcularPerimetro() {
-        return 2.0f * (this.base + this.altura);
+        return 2 * (this.base + this.altura);
     }
 }

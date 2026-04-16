@@ -1,6 +1,6 @@
 package lista_2_heranca.geometria;
 
-public class Circulo extends FormaGeometrica{
+public class Circulo implements FormaGeometrica{
     private float raio;
 
     public void setRaio(float raio) {
