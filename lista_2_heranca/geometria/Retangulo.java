@@ -4,6 +4,11 @@ public class Retangulo implements FormaGeometrica{
     private float base;
     private float altura;
 
+    public Retangulo(float base, float altura){
+        setBase(base);
+        setAltura(altura);
+    }
+
     public void setAltura(float altura) {
         if(altura < 0){
             throw new IllegalArgumentException("O valor da altura não pode ser negativo");
@@ -31,6 +36,6 @@ public class Retangulo implements FormaGeometrica{
     }
 
     public float calcularPerimetro() {
-        return 2 * (this.base + this.altura);
+        return (this.base + this.altura) * 2;
     }
 }

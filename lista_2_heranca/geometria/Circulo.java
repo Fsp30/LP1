@@ -3,6 +3,10 @@ package lista_2_heranca.geometria;
 public class Circulo implements FormaGeometrica{
     private float raio;
 
+    public Circulo(float raio){
+        setRaio(raio);
+    }
+
     public void setRaio(float raio) {
         if(raio < 0){
             throw new IllegalArgumentException("O valor de raio não pode ser negativo");

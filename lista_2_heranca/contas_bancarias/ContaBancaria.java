@@ -50,14 +50,9 @@ public abstract class ContaBancaria {
 
     public void executarAtualizacaoMensal() {
         float ajuste = calcularJuros();
-        this.saldo += ajuste;
+        setSaldo(this.saldo += ajuste);
     }
 
-    public void hasSaldoSuficiente(float valor){
-        if(valor > getSaldo()){
-            throw new IllegalArgumentException("O saque não pode ser superior ao valor presente na conta: R$"+getSaldo());
-        }
-    }
 
 
 }
